@@ -1,16 +1,6 @@
-# OptionsPricingModelWithSentimentAnalysis
-    S0 : float : initial stock/index level -> Potentially Adjusted due to sentiment analysis
-    strike : float : strike price
-    T : float : time to maturity (in year fractions)
-    M : int : grid or granularity for time (in number of total points)
-    r : float : constant risk-free short rate
-    div : float : dividend yield
-    sigma : float : volatility factor in diffusion term -> Potentially Adjusted due to sentiment analysis
-
 ![image](https://github.com/AtharvaBeesen/OptionsPricingModelWithSentimentAnalysis/assets/86427671/47f80562-c760-48fe-923f-0502a2ddb3b6)
 
-
-# Stock Market News Analysis and American Options Pricing
+# Options Pricing Model With Sentiment Analysis
 
 This project involves fetching stock market news related to Nvidia, preprocessing the text data, analyzing sentiment using a fine-tuned language model, and pricing American options using the Longstaff-Schwartz method.
 
@@ -66,3 +56,11 @@ The project is structured into several main components:
 
 - Ensure that the API keys required for accessing external services (such as the News API) are properly configured.
 - This project provides a foundational structure for analyzing stock market news sentiment and pricing American options. Further enhancements and customization can be made
+
+      S0 : float : initial stock/index level -> Potentially Adjusted due to sentiment analysis
+      strike : float : strike price
+      T : float : time to maturity (in year fractions)
+      M : int : grid or granularity for time (in number of total points)
+      r : float : constant risk-free short rate
+      div : float : dividend yield
+      sigma : float : volatility factor in diffusion term -> Potentially Adjusted due to sentiment analysis
