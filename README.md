@@ -32,10 +32,11 @@ The project is structured into several main components:
    - Performs simplistic sentiment analysis based on keywords such as 'positive' or 'negative'.
 
 4. **American Options Pricing**:
-   - Defines a class (`AmericanOptionsLSMC`) for pricing American options using the Longstaff-Schwartz method.
+   - Defines a class (`AmericanOptionsLSMC`) for pricing American options using the Longstaff-Schwartz method with Monte Carlo simulations.
    - The Longstaff-Schwartz method involves backward induction, where future cash flows are simulated and used to estimate the optimal exercise decision.
    - At each time step, a regression model is fit to estimate the continuation value, i.e., the expected future payoff if the option is not exercised.
    - The option is exercised if the payoff is higher than the continuation value, otherwise, it is held.
+   - Monte Carlo simulations are used to generate random stock price paths for estimating option prices.
    - The class provides methods to calculate option price, delta, gamma, vega, rho, and theta.
    - It also includes functionality for sentiment-based adjustments to option parameters.
 
