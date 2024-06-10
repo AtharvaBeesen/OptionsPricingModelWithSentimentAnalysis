@@ -1,0 +1,69 @@
+# Import necessary libraries
+import torch
+from transformers import GPT2Tokenizer, GPT2LMHeadModel, AdamW
+from torch.utils.data import Dataset, DataLoader
+import json
+
+# Define a custom dataset class
+class NewsDataset(Dataset):
+    def __init__(self, articles, tokenizer, max_length):
+        self.articles = articles
+        self.tokenizer = tokenizer
+        self.max_length = max_length
+
+    def __len__(self):
+        return len(self.articles)
+
+    def __getitem__(self, idx):
+        article = self.articles[idx]['text']
+        inputs = self.tokenizer.encode(article, add_special_tokens=True, max_length=self.max_length, truncation=True, padding='max_length')
+        return torch.tensor(inputs)
+
+# Load pre-trained tokenizer and model
+tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
+model = GPT2LMHeadModel.from_pretrained('gpt2')
+
+# Add padding token to the tokenizer
+tokenizer.add_special_tokens({'pad_token': '[PAD]'})
+model.resize_token_embeddings(len(tokenizer))
+
+# Check if a GPU is available and use it
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+model.to(device)
+
+# Load preprocessed articles
+with open('preprocessed_nvidia_stock_news.json', 'r') as f:
+    preprocessed_articles = json.load(f)
+
+# Define hyperparameters
+batch_size = 4
+max_length = 512
+learning_rate = 1e-4
+num_epochs = 5
+
+# Prepare data loaders
+dataset = NewsDataset(preprocessed_articles, tokenizer, max_length)
+train_loader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
+
+# Define optimizer and loss function
+optimizer = AdamW(model.parameters(), lr=learning_rate)
+
+# Training loop
+model.train()
+for epoch in range(num_epochs):
+    total_loss = 0
+    for batch in train_loader:
+        optimizer.zero_grad()
+        inputs = batch.to(device)
+        outputs = model(inputs, labels=inputs)
+        loss = outputs.loss
+        loss.backward()
+        optimizer.step()
+        total_loss += loss.item()
+    print(f"Epoch {epoch+1}/{num_epochs}, Loss: {total_loss}")
+
+# Save trained model
+model.save_pretrained('trained_nvidia_model')
+tokenizer.save_pretrained('trained_nvidia_model')
+
+print("Model training complete and saved.")
