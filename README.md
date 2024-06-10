@@ -12,7 +12,7 @@ The project is structured into several main components:
 
 2. **Preprocessing Text Data**: A Python script (`preprocess_text_data.py`) that preprocesses the fetched news articles by removing HTML tags, special characters, punctuation, stopwords, and performs lemmatization.
 
-3. **Sentiment Analysis**: Utilizes a fine-tuned GPT-2 language model to generate sentiment from the preprocessed news articles.
+3. **Sentiment Analysis**: Utilizes a fine-tuned GPT-2 language model to generate sentiment from the preprocessed news articles - (`fine_tuned_LLM.py`)
 
 4. **American Options Pricing**: A Python class (`AmericanOptionsLSMC.py`) implementing the Longstaff-Schwartz method for pricing American options. It also includes functionality for sentiment-based adjustments to option parameters.
 
