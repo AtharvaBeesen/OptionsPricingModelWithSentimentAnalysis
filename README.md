@@ -1,6 +1,6 @@
 ![image](https://github.com/AtharvaBeesen/OptionsPricingModelWithSentimentAnalysis/assets/86427671/47f80562-c760-48fe-923f-0502a2ddb3b6)
 
-# Options Pricing Model With Sentiment Analysis
+# Stock Market News Analysis and American Options Pricing
 
 This project involves fetching stock market news related to Nvidia, preprocessing the text data, analyzing sentiment using a fine-tuned language model, and pricing American options using the Longstaff-Schwartz method.
 
@@ -33,6 +33,9 @@ The project is structured into several main components:
 
 4. **American Options Pricing**:
    - Defines a class (`AmericanOptionsLSMC`) for pricing American options using the Longstaff-Schwartz method.
+   - The Longstaff-Schwartz method involves backward induction, where future cash flows are simulated and used to estimate the optimal exercise decision.
+   - At each time step, a regression model is fit to estimate the continuation value, i.e., the expected future payoff if the option is not exercised.
+   - The option is exercised if the payoff is higher than the continuation value, otherwise, it is held.
    - The class provides methods to calculate option price, delta, gamma, vega, rho, and theta.
    - It also includes functionality for sentiment-based adjustments to option parameters.
 
@@ -55,7 +58,9 @@ The project is structured into several main components:
 ## Note:
 
 - Ensure that the API keys required for accessing external services (such as the News API) are properly configured.
-- This project provides a foundational structure for analyzing stock market news sentiment and pricing American options. Further enhancements and customization can be made
+- This project provides a foundational structure for analyzing stock market news sentiment and pricing American options. Further enhancements and customization can be made based on specific requirements and use cases.
+
+
 
       S0 : float : initial stock/index level -> Potentially Adjusted due to sentiment analysis
       strike : float : strike price
