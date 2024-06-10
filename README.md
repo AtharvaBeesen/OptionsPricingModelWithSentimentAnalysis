@@ -1,6 +1,6 @@
 ![image](https://github.com/AtharvaBeesen/OptionsPricingModelWithSentimentAnalysis/assets/86427671/47f80562-c760-48fe-923f-0502a2ddb3b6)
 
-# Stock Market News Analysis and American Options Pricing
+# Advanced American Options Pricing Model with Sentiment Analysis via Fine-Tuned LLM
 
 This project involves fetching stock market news related to Nvidia, preprocessing the text data, analyzing sentiment using a fine-tuned language model, and pricing American options using the Longstaff-Schwartz method.
 
