@@ -2,7 +2,7 @@
 
 # Advanced American Options Pricing Model with Sentiment Analysis via Fine-Tuned LLM
 
-This project involves fetching stock market news related to Nvidia, preprocessing the text data, analyzing sentiment using a fine-tuned language model, and pricing American options using the Longstaff-Schwartz (Monte Carlo) method.
+This project involves fetching stock market news related to Nvidia, preprocessing the text data, analyzing sentiment using a fine-tuned language model, and pricing American options using the Longstaff-Schwartz (with Monte Carlo Simulations) method.
 
 ## Project Structure:
 
@@ -14,7 +14,7 @@ The project is structured into several main components:
 
 3. **Sentiment Analysis**: Utilizes a fine-tuned GPT-2 language model to generate sentiment from the preprocessed news articles - (`fine_tuned_LLM.py`)
 
-4. **American Options Pricing**: A Python class (`AmericanOptionsLSMC.py`) implementing the Longstaff-Schwartz (Monte Carlo) method for pricing American options. It also includes functionality for sentiment-based adjustments to option parameters.
+4. **American Options Pricing**: A Python class (`AmericanOptionsLSMC.py`) implementing the Longstaff-Schwartz (with Monte Carlo Simulations) method for pricing American options. It also includes functionality for sentiment-based adjustments to option parameters.
 
 ## Project Workflow:
 
